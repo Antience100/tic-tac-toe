@@ -1,3 +1,10 @@
+const player = (name, token) => {
+  return {
+    getPlayerName: () => name,
+    getPlayerToken: () => token,
+  };
+};
+
 const gameBoard = (function () {
   const board = ["", "", "", "", "", "", "", "", ""];
 
@@ -15,18 +22,5 @@ const gameBoard = (function () {
   };
 })();
 
-// console.log(gameBoard.getGameBoard());
-// gameBoard.setBoardCell(5, "X");
-// console.log(gameBoard.getGameBoard());
-// gameBoard.clearGameBoard();
-// gameBoard.setBoardCell(0, "X");
-// gameBoard.setBoardCell(1, "X");
-// gameBoard.setBoardCell(2, "X");
-// gameBoard.setBoardCell(3, "X");
-// gameBoard.setBoardCell(4, "X");
-// gameBoard.setBoardCell(5, "X");
-// gameBoard.setBoardCell(6, "X");
-// gameBoard.setBoardCell(7, "X");
-// gameBoard.setBoardCell(8, "X");
-// console.log(gameBoard.getGameBoard());
-// console.log(gameBoard.checkGameBoard());
+let player1 = player("Jones", "X");
+console.log(player1.getPlayerName(), player1.getPlayerToken());
