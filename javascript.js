@@ -1,9 +1,24 @@
-const player = (name, token) => {
-  return {
-    getPlayerName: () => name,
-    getPlayerToken: () => token,
+const player = (function () {
+  let playerCounter = 0;
+
+  return function (name, token) {
+    playerCounter++;
+    return {
+      name,
+      token,
+      moves: [],
+      addMove: function (move) {
+        this.moves.push(move);
+      },
+      clearMoves: function () {
+        this.moves = [];
+      },
+    };
   };
-};
+})();
+
+let jones = player("Jones", "X");
+let dirk = player("Dirk", "O");
 
 const gameBoard = (function () {
   const board = ["", "", "", "", "", "", "", "", ""];
@@ -21,6 +36,3 @@ const gameBoard = (function () {
     checkGameBoard: () => board.every((cell) => cell !== ""),
   };
 })();
-
-let player1 = player("Jones", "X");
-console.log(player1.getPlayerName(), player1.getPlayerToken());
