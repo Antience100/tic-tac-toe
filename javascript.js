@@ -269,3 +269,5 @@ const game = (function () {
     getGameState,
   };
 })();
+
+const displayController = (function () {})();
